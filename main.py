@@ -13,8 +13,8 @@ def get_fraud_score(ip, hostname, username, key):
         return None, None
 
 ip = input("Enter the IP address: ")
-hostname = "api11.scamalytics.com"  
-username = "manticwhale"  
+hostname = ""  
+username = ""  
 key = ""  
 score, risk = get_fraud_score(ip, hostname, username, key)
 
