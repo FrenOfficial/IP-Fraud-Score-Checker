@@ -15,7 +15,7 @@ def get_fraud_score(ip, hostname, username, key):
 ip = input("Enter the IP address: ")
 hostname = "api11.scamalytics.com"  
 username = "manticwhale"  
-key = "822dacb006623db2f168d5c29b1c5050c876058071fc982496080f06fea35235"  
+key = ""  
 score, risk = get_fraud_score(ip, hostname, username, key)
 
 if score and risk:
