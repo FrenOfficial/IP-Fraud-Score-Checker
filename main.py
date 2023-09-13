@@ -1,7 +1,11 @@
+#!/usr/bin/python3
 import requests
-
-def get_fraud_score(ip, hostname, username, key):
-    url = f"https://{hostname}/{username}/?ip={ip}&key={key}"
+import os
+hostname = os.environ.get("SCAMALYTICS_API_HOSTNAME")
+key = os.environ.get("SCAMALYTICS_API_KEY")
+username = os.environ.get("SCAMALYTICS_USERNAME")
+def get_fraud_score(ip):
+    url = f"{hostname}/{username}/?key={key}&ip={ip}"
     response = requests.get(url)
     if response.status_code == 200:
         fraud_data = response.json()
@@ -13,10 +17,7 @@ def get_fraud_score(ip, hostname, username, key):
         return None, None
 
 ip = input("Enter the IP address: ")
-hostname = ""  
-username = ""  
-key = ""  
-score, risk = get_fraud_score(ip, hostname, username, key)
+score, risk = get_fraud_score(ip)
 
 if score and risk:
     print(f"Fraud Score: {score}")
